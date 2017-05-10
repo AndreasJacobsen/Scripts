@@ -8,7 +8,7 @@ sleep 2
 echo -e "\e[32m Installerer pakker fra pakkelister: \e[95m unrar \e[96m curl \e[95m zsh \e[96m git-core" 
 echo -e "\e[39m"
 sleep 2
-sudo apt -y install rar curl zsh
+sudo apt -y install rar curl zsh git-core
 
 
 
