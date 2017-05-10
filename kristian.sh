@@ -58,7 +58,7 @@ if [ "" == "$install" ]; then
     sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
     sleep 2
     echo -e "\e[32m Oppdaterer pakkeliste og installerer Qbittorent \e[39m" 
-    sudo apt update && sudo apt install qbittorrent
+    sudo apt -y update && sudo apt -y install qbittorrent
 
 
     echo -e "\e[32m Qbittorrent nå installert på din maskin \e[33m"
