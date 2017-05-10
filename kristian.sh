@@ -20,16 +20,12 @@ sleep 3
 echo -e "\e[32m Oh My zsh installert, restart maskinen før det tar effekt\n\n \e[39m"
 echo -e "\e[32m installerer oh my zsh spaceship tema \e[39m"
 sleep 6
-wget https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh 
-mv spaceship.zsh $ZSH_CUSTOM/themes/spaceship.zsh-theme
-echo -e "\e[32m setter spaceship som standard tema."
-sed -i 's/robbyrussel/spaceship/g' ~/.zshrc
+curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
 
 
 
 sleep 4 
 echo -e "\e[95m Sjekker om Neofetch er installert"
-echo -e "\e[32m Sjekker om GitKraken er installert på maskinen din:\e[39m"
 install=$(grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/* | grep dawidd0811)
 if [ "" == "$install" ]; then
     echo -e "\e[32m Neofetch ikke funnet på din maskin:" 
@@ -45,7 +41,7 @@ if [ "" == "$install" ]; then
     echo 'neofetch' >> ~/.zshrc 
 
 else 
-    echo -e "\e[95m GitKraken-installsjon ble funnet på din maskin\n\n"
+    echo -e "\e[95m Neofetch-installsjon ble funnet på din maskin\n\n"
     fi
 
     
@@ -96,7 +92,7 @@ if [ "" == "$install" ]; then
 
 else 
     echo -e "\e[95m GitKraken-installsjon ble funnet på din maskin\n\n"
-    fi
+fi
 echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
 
 install=$(apt-cache policy | grep "chrome")
@@ -115,8 +111,21 @@ if [ "" == "$install" ]; then
 
 else 
     echo -e "\e[95m Chrome ble funnet på din maskin\n\n"
-    fi
+ fi
 
+sleep 2
+echo -e "\e[32m Installerer JetBrains Toolbox 1.2.2314:  \e[39m" 
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.2.2314.tar.gz
+tar xvzf jetbrains-toolbox-1.2.2314.tar.gz 
+cd jetbrains-toolbox-1.2.2314/
+nohup ./jetbrains-toolbox &
+cd ..
+sudo rm -r jetbrains*
+echo -e "\e[32m Jetbrains Toolbox installert, du skal se programmet nå :" 
+sleep 6
+
+
+ 
 sleep 2
 echo -e "\e[32m fjerner unødvendige pakker"
 echo -e "\e[39m"
