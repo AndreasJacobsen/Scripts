@@ -5,6 +5,7 @@ echo -e "Oppdaterer pakker og pakkeliste\e[33m"
 sleep 2
 echo -e "\e[32m Installerer pakker fra pakkelister: \e[95m unrar" 
 echo -e "\e[39m"
+sleep 2
 sudo apt -y install rar unrar
 echo -e "\e[32m Installerer Spotify "
 echo -e "\e[39m"
