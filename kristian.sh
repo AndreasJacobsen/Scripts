@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#TODO: Installasjon for Latte-dock 
+
 echo -e "\e[95m Install script av Andreas for Ubuntu-basserte distribusjoner, skrevet for Kristian"
 echo -e "\e[32m Oppdaterer pakker og pakkeliste \e[33m" 
 sleep 2
