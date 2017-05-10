@@ -42,7 +42,7 @@ if [ "" == "$install" ]; then
 
 
     echo -e "Konfigurer zsh til å autostarte Neofetch ved terminalstart  \e[39m"
-    echo 'neofetch2' >> ~/.zshrc 
+    echo 'neofetch' >> ~/.zshrc 
 
 else 
     echo -e "\e[95m GitKraken-installsjon ble funnet på din maskin\n\n"
