@@ -38,7 +38,7 @@ if [ "" == "$install" ]; then
     sudo add-apt-repository ppa:dawidd0811/neofetch -y
     sleep 2
     echo -e "\e[32m Oppdaterer pakkeliste og installerer Neofetch \e[39m" 
-    sudo apt update && sudo apt install neofetch
+    sudo apt -y update && sudo apt install -y neofetch
 
 
     echo -e "Konfigurer zsh til å autostarte Neofetch ved terminalstart  \e[39m"
@@ -108,6 +108,7 @@ if [ "" == "$install" ]; then
     sleep 2
     echo -e "\e[32m Installerer Chrome \e[39m" 
     sudo dpkg -i google-chrome*
+    sudo apt -y install -f
 
 
     echo -e " Sletter Chrome installasjonsfil  \e[39m \n\n"
