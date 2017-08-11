@@ -78,45 +78,45 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 sudo apt -y update
 sudo apt -y install spotify-client
 
-sleep 4
-echo -e "\e[32m Sjekker om GitKraken er installert på maskinen din:\e[39m"
-install=$(dpkg -s gitkraken|grep installed)
-if [ "" == "$install" ]; then
-    echo -e "\e[32m GitKraken ikke funnet på din maskin:" 
-    sleep 2
-    echo -e "\e[32m Laster ned GitKraken \e[39m" 
-    wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
-    sleep 2
-    echo -e "\e[32m Installerer GitKraken \e[39m" 
-    sudo dpkg -i gitkraken*
+#sleep 4
+#echo -e "\e[32m Sjekker om GitKraken er installert på maskinen din:\e[39m"
+#install=$(dpkg -s gitkraken|grep installed)
+#if [ "" == "$install" ]; then
+#    echo -e "\e[32m GitKraken ikke funnet på din maskin:" 
+#    sleep 2
+#    echo -e "\e[32m Laster ned GitKraken \e[39m" 
+#    wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+#    sleep 2
+#    echo -e "\e[32m Installerer GitKraken \e[39m" 
+#    sudo dpkg -i gitkraken*
+#
+#
+#    echo -e "Sletter GitKraken installasjonsfil  \e[39m"
+#    rm gitkraken*
+#
+#else 
+#    echo -e "\e[95m GitKraken-installsjon ble funnet på din maskin\n\n"
+#fi
+#echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
+
+#install=$(apt-cache policy | grep "chrome")
+#if [ "" == "$install" ]; then
+#    echo -e "\e[32m Chrome ikke funnet på din maskin:" 
+#    sleep 2
+#    echo -e "\e[32m Laster ned Chrome \e[39m" 
+#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#    sleep 2
+#    echo -e "\e[32m Installerer Chrome \e[39m" 
+#    sudo dpkg -i google-chrome*
+#    sudo apt -y install -f
 
 
-    echo -e "Sletter GitKraken installasjonsfil  \e[39m"
-    rm gitkraken*
+#    echo -e " Sletter Chrome installasjonsfil  \e[39m \n\n"
+#    rm chrome*
 
-else 
-    echo -e "\e[95m GitKraken-installsjon ble funnet på din maskin\n\n"
-fi
-echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
-
-install=$(apt-cache policy | grep "chrome")
-if [ "" == "$install" ]; then
-    echo -e "\e[32m Chrome ikke funnet på din maskin:" 
-    sleep 2
-    echo -e "\e[32m Laster ned Chrome \e[39m" 
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sleep 2
-    echo -e "\e[32m Installerer Chrome \e[39m" 
-    sudo dpkg -i google-chrome*
-    sudo apt -y install -f
-
-
-    echo -e " Sletter Chrome installasjonsfil  \e[39m \n\n"
-    rm chrome*
-
-else 
-    echo -e "\e[95m Chrome ble funnet på din maskin\n\n"
- fi
+#else 
+#    echo -e "\e[95m Chrome ble funnet på din maskin\n\n"
+# fi
 
 sleep 2
 echo -e "\e[32m Installerer JetBrains Toolbox 1.2.2314:  \e[39m" 
