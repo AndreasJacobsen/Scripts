@@ -177,11 +177,16 @@ if [ "" == "$zshtest" ]; then
    echo "alias gitdiff=\"git --no-pager -diff\"" >> ~/.zshrc
 else
     echo -e "\e[95m gitdiff alias ble funnet \n\n"
-fi    
+fi
 
-#ALIASER SOM MÅ LEGGES TIL
-#echo "alias gitpull=\"echo test\"" >> ~/.zshrc
-#echo "alias dockerrm=\"echo test\"" >> ~/.zshrc
+zshtest=$(grep ^ ~/.zshrc  | grep dockerrm)
+if [ "" == "$zshtest" ]; then
+   echo -e "\e[32m  dockerrm ikke funnet \n legger til gitalias"
+   echo "alias dockerrm=\"docker rm $(docker ps -a -q -f status=exited) \"" >> ~/.zshrc
+else
+    echo -e "\e[95m dockerrm alias ble funnet \n\n"
+fi
+
 
 
 
