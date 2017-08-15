@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #TODO: Installasjon for Latte-dock, shutter, vscode, atom.
 #TODO: unattended-upgrades <- sikkerhetspakker.
@@ -19,7 +19,7 @@ sudo apt -y install rar curl zsh git-core
 sleep 4 
 echo -e "\e[32m Installerer Oh My zsh \e[39m"
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-chsh -s `which zsh`
+chsh -s 'which zsh'
 sleep 3
 echo -e "\e[32m Oh My zsh installert, restart maskinen før det tar effekt\n\n \e[39m"
 echo -e "\e[32m installerer oh my zsh spaceship tema \e[39m"
@@ -69,10 +69,13 @@ else
     echo -e "\e[95m Qbittorent-installsjon ble funnet på din maskin\n\n"
     fi    
     
+echo -e "\e[95m Install script av Andreas for Ubuntu-basserte distribusjoner, skrevet for Kristian"
 
 echo -e "\e[32m Installerer Spotify "
 echo -e "\e[39m"
 sleep 4
+echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
+
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt -y update
@@ -135,6 +138,50 @@ sleep 2
 echo -e "\e[32m fjerner unødvendige pakker"
 echo -e "\e[39m"
 sudo apt -y autoremove
+
+echo -e "\e[95m legger til noen av Andreas sine aliaser til ~/.zshrc"
+echo -e "\e[32m Legger til alias: \e[95m gitlog \e[96m gitdiff \e[95m gitpull \e[96m dockerrm" 
+echo "sjekker om de eksisterer i aliasliste først"
+sleep 5
+
+#aliaseses 
+#this needs to be effectivized! use functions instead
+zshtest=$(grep ^ ~/.zshrc  | grep gitlog)
+if [ "" == "$zshtest" ]; then
+   echo -e "\e[32m  gitlog ikke funnet \n legger til gitalias" 
+   echo "alias gitlog=\"git log --decorate --oneline --graph --pretty --all\"" >> ~/.zshrc 
+else 
+    echo -e "\e[95m gitlog alias ble funnet \n\n"
+fi    
+
+zshtest=$(grep ^ ~/.zshrc  | grep gitdiff)
+if [ "" == "$zshtest" ]; then
+   echo -e "\e[32m  gitdiff ikke funnet \n legger til gitalias" 
+   echo "alias gitdiff=\"git --no-pager diff\"" >> ~/.zshrc 
+else 
+    echo -e "\e[95m gitdiff alias ble funnet \n\n"
+fi    
+
+zshtest=$(grep ^ ~/.zshrc  | grep gitpull)
+if [ "" == "$zshtest" ]; then
+   echo -e "\e[32m  gitdiff ikke funnet \n legger til gitalias" 
+   echo "alias gitpull=\"git pull --rebase\"" >> ~/.zshrc
+else 
+   echo -e "\e[95m gitlog alias ble funnet \n\n"
+
+ fi
+
+zshtest=$(grep ^ ~/.zshrc  | grep gitpull)
+if [ "" == "$zshtest" ]; then
+   echo -e "\e[32m  gitdiff ikke funnet \n legger til gitalias" 
+   echo "alias gitdiff=\"git --no-pager -diff\"" >> ~/.zshrc
+else
+    echo -e "\e[95m gitdiff alias ble funnet \n\n"
+fi    
+
+echo "alias gitpull=\"echo test\"" >> ~/.zshrc 
+echo "alias dockerrm=\"echo test\"" >> ~/.zshrc 
+
 
 
 
