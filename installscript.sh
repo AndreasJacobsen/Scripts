@@ -171,7 +171,7 @@ else
 
  fi
 
-zshtest=$(grep ^ ~/.zshrc  | grep gitpull)
+zshtest=$(grep ^ ~/.zshrc  | grep gitdiff)
 if [ "" == "$zshtest" ]; then
    echo -e "\e[32m  gitdiff ikke funnet \n legger til gitalias" 
    echo "alias gitdiff=\"git --no-pager -diff\"" >> ~/.zshrc
