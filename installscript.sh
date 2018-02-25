@@ -128,14 +128,14 @@ if [ "" == "$install" ]; then
 
 
     echo -e " Sletter Chrome installasjonsfil  \e[39m \n\n"
-    rm chrome*
+    rm google*
 
 else 
     echo -e "\e[95m Chrome ble funnet på din maskin\n\n"
  fi
 
 sleep 2
-echo -e "\e[32m Installerer PyCharm, IntelliJ  \e[39m" 
+echo -e "\e[32m Installerer PyCharm, IntelliJ via snapd, restart maskinen din for å se disse  \e[39m" 
 sudo snap install pycharm-professional --classic
 sudo snap install intellij-idea-ultimate --classic --edge
 
@@ -150,6 +150,13 @@ echo -e "\e[95m legger til noen av Andreas sine aliaser til ~/.zshrc"
 echo -e "\e[32m Legger til alias: \e[95m gitlog \e[96m gitdiff \e[95m gitpull \e[96m dockerrm" 
 echo "sjekker om de eksisterer i aliasliste først"
 sleep 5
+
+echo -e "\e[32m Installerer Python Pip og Pip3 \e[39m" 
+sudo apt-get install -y python-pip python3-pip
+echo -e "\e[32m Installerer virtuelvn \e[39m" 
+pip3 install virtualenv 
+echo -e "\e[32m Virtualenv installert, bruk med kommandoen virtualenv venvnavn \e[39m" 
+
 
 #aliaseses 
 #this needs to be effectivized! use functions instead
@@ -193,3 +200,7 @@ if [ "" == "$zshtest" ]; then
 else
     echo -e "\e[95m dockerrm alias ble funnet \n\n"
 fi
+
+
+
+
