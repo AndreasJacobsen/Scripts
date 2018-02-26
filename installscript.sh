@@ -83,13 +83,21 @@ echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
 
 echo -e "\e[32m installerer snapd"
 sudo apt-get -y update
-sudo add-aptsudo apt-get< update
+sudo add-aptsudo apt-get update
 sudo apt-get install snapcraft-repository ppa:snappy-dev/tools
 
 
 snap install spotify
 echo -e "\e[32m Installerte Spotify som snapd pakke, restart maskinen din for å se programmet"
 
+snap install spotify
+echo -e "\e[32m Installing vscode as a snapd package"
+sudo snap install --classic vscode
+
+sleep 3 
+snap install spotify
+echo -e "\e[32m Installing Atom.io as a snapd package"
+sudo snap install --classic atom
 
 sleep 4
 echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
