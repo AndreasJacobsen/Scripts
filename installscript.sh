@@ -82,9 +82,9 @@ echo -e "\e[32m Sjekker om Google Chrome er installert på maskinen din:\e[39m"
 
 
 echo -e "\e[32m installerer snapd"
-sudo apt-get -y update
-sudo add-aptsudo apt-get update
-sudo apt-get install snapcraft-repository ppa:snappy-dev/tools
+sudo add-apt-repository ppa:snappy-dev/tools
+sudo apt-get update
+sudo apt-get install snapcraft
 
 
 snap install spotify
